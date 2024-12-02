@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.media;
 
+import java.util.Objects;
+
 public abstract class Media {
 	private int id;
 	private String title;
@@ -39,6 +41,23 @@ public abstract class Media {
 		this.cost = cost;
 	}
 	public abstract boolean isMatch(String title2);
+	 @Override
+	    public boolean equals(Object obj) {
+	        // Kiểm tra nếu obj là thể hiện của Media
+	        if (this == obj) {
+	            return true;
+	        }
+	        if (obj == null || getClass() != obj.getClass()) {
+	            return false;
+	        }
+	        Media media = (Media) obj;  // Ép kiểu Object thành Media
+	        return Objects.equals(title, media.title);  // So sánh title
+	    }
+
+	    @Override
+	    public int hashCode() {
+	        return Objects.hash(title);  // Cần ghi đè phương thức hashCode khi ghi đè equals
+	    }
 	
 
 }
