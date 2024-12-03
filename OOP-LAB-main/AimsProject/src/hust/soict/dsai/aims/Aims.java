@@ -7,10 +7,11 @@ import hust.soict.dsai.aims.media.Playable;
 import hust.soict.dsai.aims.store.Store;
 import java.util.Scanner;
 public class Aims {
+	static Cart cart = new Cart();
+	static Store store = new Store();
+	
 	
 	public static void main(String[] args) {
-		Cart cart = new Cart(); 
-		Store store = new Store();
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Pursuit Of Happiness", "Slice Of Life","Gabriele Muccino", 120, 24.95f);
 		cart.addMedia(dvd1);
 		
@@ -87,7 +88,7 @@ public class Aims {
 	                    playMedia(scanner);
 	                    break;
 	                case 4:
-	                Cart cart = new Cart(); 
+	                 
 					cart.print();
 	                    break;
 	                case 0:
@@ -127,8 +128,7 @@ public class Aims {
 
 	    // Media Details Menu
 	    public static void mediaDetailsMenu(Scanner scanner, Media media) {
-	    	Cart cart = new Cart(); 
-			Store store = new Store();
+	    	
 	        while (true) {
 	            System.out.println("\nOptions: ");
 	            System.out.println("--------------------------------");
@@ -162,8 +162,7 @@ public class Aims {
 
 	    // Add Media to Cart
 	    public static void addMediaToCart(Scanner scanner) {
-	    	Cart cart = new Cart(); 
-			Store store = new Store();
+	    	
 	        System.out.print("\nEnter the title of the media to add to cart: ");
 	        String title = scanner.nextLine();
 	        Media media = store.searchByTitle(title);
@@ -177,8 +176,7 @@ public class Aims {
 
 	    // Play Media
 	    public static void playMedia(Scanner scanner) {
-	    	Cart cart = new Cart(); 
-			Store store = new Store();
+	    	
 	        System.out.print("\nEnter the title of the media to play: ");
 	        String title = scanner.nextLine();
 	        Media media = store.searchByTitle(title);
@@ -219,8 +217,7 @@ public class Aims {
 
 	    // Add Media to Store
 	    public static void addMediaToStore(Scanner scanner) {
-	    	Cart cart = new Cart(); 
-			Store store = new Store();
+	    	
 	        System.out.print("\nEnter the title of the media to add: ");
 	        String title = scanner.nextLine();
 	        System.out.print("Enter the category: ");
@@ -235,8 +232,7 @@ public class Aims {
 
 	    // Remove Media from Store
 	    public static void removeMediaFromStore(Scanner scanner) {
-	    	Cart cart = new Cart(); 
-			Store store = new Store();
+	    	
 	        System.out.print("\nEnter the title of the media to remove: ");
 	        String title = scanner.nextLine();
 	        Media media = store.searchByTitle(title);
@@ -310,8 +306,7 @@ public class Aims {
 
 	    // Sort Medias in Cart
 	    public static void sortMediasInCart(Scanner scanner) {
-	    	Cart cart = new Cart(); 
-			Store store = new Store();
+	    	
 	        System.out.println("\nSort by: ");
 	        System.out.println("1. Title");
 	        System.out.println("2. Cost");
@@ -332,8 +327,7 @@ public class Aims {
 
 	    // Remove Media from Cart
 	    public static void removeMediaFromCart(Scanner scanner) {
-	    	Cart cart = new Cart(); 
-			Store store = new Store();
+	    	
 	        System.out.print("\nEnter the title of the media to remove: ");
 	        String title = scanner.nextLine();
 	        cart.searchByTitle(title);
@@ -342,8 +336,7 @@ public class Aims {
 
 	    // Place Order
 	    public static void placeOrder() {
-	    	Cart cart = new Cart(); 
-			Store store = new Store();
+	    	
 	        System.out.println("\nOrder created. Your cart is now empty.");
 	        cart.clear();
 	    }
